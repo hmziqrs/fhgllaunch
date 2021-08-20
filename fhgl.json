@@ -1,3 +1,14 @@
 {
-    "vslaunch": {}
+    "vslaunch": {
+        "all": {
+            "args": ["--profile"],
+            "file": "lib/main-release.dart",
+            "flavor": "prod"
+        },
+        "windows": {
+            "args": ["--debug"],
+            "file": "lib/main-debug.dart",
+            "flavor": "dev"
+        }
+    }
 }

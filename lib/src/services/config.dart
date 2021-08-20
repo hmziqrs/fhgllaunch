@@ -11,16 +11,16 @@ class ConfigsService {
 
   Config get data => _data;
 
-  Future<void> load() async {
+  Future<Config?> load() async {
     _file = File(Directory.current.uri.resolve('fhgl.json').toFilePath());
     if (await _file.exists()) {
-      await _verifyAndParse();
+      return await _verifyAndParse();
     } else {
       print('No configs found');
     }
   }
 
-  Future<void> _verifyAndParse() async {
+  Future<Config?> _verifyAndParse() async {
     final content = await _file.readAsString();
     if (content.isEmpty) {
       print('Empty configs file');
@@ -28,7 +28,7 @@ class ConfigsService {
       final json = jsonDecode(content);
       if (json is Map && json[FILE_KEY] != null && json[FILE_KEY] is Map) {
         _data = Config.fromMap(json[FILE_KEY])!;
-        print(_data);
+        return _data;
       }
     }
   }
