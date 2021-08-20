@@ -1,3 +1,5 @@
-void main(List<String> arguments) {
-  print('Hello world!');
+import 'package:args/args.dart';
+
+void main(List<String> args) {
+  print("WOW");
 }
