@@ -1,8 +1,11 @@
 import 'dart:convert';
 
+import 'config_compound.dart';
 import 'config_device.dart';
 
 class Config {
+  final List<ConfigCompound>? compounds;
+
   final ConfigDevice? all;
 
   // desktop
@@ -20,6 +23,7 @@ class Config {
   final ConfigDevice? web;
 
   Config({
+    this.compounds,
     this.all,
     this.desktop,
     this.windows,
@@ -33,6 +37,7 @@ class Config {
 
   Map<String, dynamic> toMap() {
     return {
+      'compounds': compounds,
       'all': all?.toMap(),
       'desktop': desktop?.toMap(),
       'windows': windows?.toMap(),
@@ -49,6 +54,9 @@ class Config {
     if (map == null) return null;
 
     return Config(
+      compounds: map['compounds'] != null
+          ? List<ConfigCompound>.from(map['compounds'])
+          : null,
       all: ConfigDevice.fromMap(map['all']),
       desktop: ConfigDevice?.fromMap(map['desktop']),
       windows: ConfigDevice.fromMap(map['windows']),
@@ -68,6 +76,6 @@ class Config {
 
   @override
   String toString() {
-    return 'Config(all: $all, desktop: $desktop, windows: $windows, macos: $macos, linux: $linux, mobile: $mobile, android: $android, ios: $ios, web: $web)';
+    return 'Config(compounds: $compounds, all: $all, desktop: $desktop, windows: $windows, macos: $macos, linux: $linux, mobile: $mobile, android: $android, ios: $ios, web: $web)';
   }
 }

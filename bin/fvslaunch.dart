@@ -9,9 +9,7 @@ void main(List<String> arguments) async {
     'flutter',
     ['devices'],
     runInShell: Platform.isWindows,
-  ).catchError((err) {
-    print(err.toString());
-  });
+  );
 
   final result = processResult.stdout.split('\n') as List<String>;
   final filteredResult = result
