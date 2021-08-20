@@ -41,10 +41,8 @@ class Device {
     };
   }
 
-  factory Device.fromMap(Map<String, dynamic>? map) {
-    if (map == null) {
-      throw ArgumentError('Unexpected type for data');
-    }
+  static Device? fromMap(Map<String, dynamic>? map) {
+    if (map == null) return null;
 
     return Device(
       name: map['name'],
@@ -57,7 +55,9 @@ class Device {
 
   String toJson() => json.encode(toMap());
 
-  factory Device.fromJson(String source) => Device.fromMap(json.decode(source));
+  factory Device.fromJson(String source) => Device.fromMap(
+        json.decode(source),
+      )!;
 
   @override
   String toString() {

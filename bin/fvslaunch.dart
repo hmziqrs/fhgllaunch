@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:fvslaunch/src/models/device.dart';
 import 'package:fvslaunch/src/constants.dart';
+import 'package:fvslaunch/src/services/config.dart';
 
 void main(List<String> arguments) async {
   final processResult = await Process.run(
@@ -29,6 +30,9 @@ void main(List<String> arguments) async {
       'args': [],
     });
   });
+
+  final config = ConfigsService();
+  await config.load();
 
   print(devices);
 }
