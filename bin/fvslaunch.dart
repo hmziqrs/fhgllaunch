@@ -1,9 +1,7 @@
 import 'dart:io';
 
-import 'package:args/args.dart';
-
-import 'src/constants.dart';
-import 'src/device.dart';
+import 'package:fvslaunch/src/models/device.dart';
+import 'package:fvslaunch/src/constants.dart';
 
 void main(List<String> arguments) async {
   final processResult = await Process.run(
