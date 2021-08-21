@@ -78,10 +78,11 @@ class JSONWriterService {
       final index = args.indexOf(FILE_FLAG);
       if (index == -1) {
         args.add(FILE_FLAG);
-      } else if (args.length >= index + 2) {
-        args[index + 1] = config.flavor!;
+      }
+      if (args.length >= index + 2) {
+        args[index + 1] = config.file!;
       } else {
-        args.add(config.flavor!);
+        args.add(config.file!);
       }
     }
 
@@ -103,8 +104,7 @@ class JSONWriterService {
   }
 
   Future<void> _createJsonFile(Map<String, dynamic> map) async {
-    final path =
-        Directory.current.uri.resolve('.vscode').resolve('launch.json');
+    final path = Directory.current.uri.resolve('.vscode/launch.json');
     final file = File(path.toFilePath());
     if (!await file.exists()) {
       await file.create(recursive: true);

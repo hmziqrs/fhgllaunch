@@ -1,0 +1,39 @@
+{
+	"version": "1.0.0",
+	"configurations": [
+		{
+			"name": "Flutter",
+			"request": "launch",
+			"type": "dart"
+		},
+		{
+			"name": "Windows (desktop)",
+			"deviceId": "windows",
+			"type": "dart",
+			"request": "launch",
+			"os": "windows",
+			"args": [
+				"lib/main-debug.dart",
+				"--flavor",
+				"dev",
+				"-t"
+			]
+		},
+		{
+			"name": "Chrome (web)",
+			"deviceId": "chrome",
+			"type": "dart",
+			"request": "launch",
+			"os": "web",
+			"args": []
+		},
+		{
+			"name": "Edge (web)",
+			"deviceId": "edge",
+			"type": "dart",
+			"request": "launch",
+			"os": "web",
+			"args": []
+		}
+	]
+}
