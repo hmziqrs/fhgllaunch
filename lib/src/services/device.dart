@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:fvslaunch/src/constants.dart';
-import 'package:fvslaunch/src/models/device.dart';
+import 'package:fhgllaunch/src/constants.dart';
+import 'package:fhgllaunch/src/models/device.dart';
 
 class DeviceService {
   Future<List<Device>?> load() async {

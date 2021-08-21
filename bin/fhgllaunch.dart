@@ -1,6 +1,6 @@
-import 'package:fvslaunch/src/services/JSONWriter.dart';
-import 'package:fvslaunch/src/services/config.dart';
-import 'package:fvslaunch/src/services/device.dart';
+import 'package:fhgllaunch/src/services/JSONWriter.dart';
+import 'package:fhgllaunch/src/services/config.dart';
+import 'package:fhgllaunch/src/services/device.dart';
 
 void main(List<String> arguments) async {
   final configs = await ConfigsService().load();

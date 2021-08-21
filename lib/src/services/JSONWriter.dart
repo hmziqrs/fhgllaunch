@@ -1,11 +1,11 @@
 import 'dart:io';
 import 'dart:convert';
 
-import 'package:fvslaunch/src/constants.dart';
+import 'package:fhgllaunch/src/constants.dart';
 
-import 'package:fvslaunch/src/models/config_device.dart';
-import 'package:fvslaunch/src/models/config.dart';
-import 'package:fvslaunch/src/models/device.dart';
+import 'package:fhgllaunch/src/models/config_device.dart';
+import 'package:fhgllaunch/src/models/config.dart';
+import 'package:fhgllaunch/src/models/device.dart';
 
 class JSONWriterService {
   void write({Config? configs, required List<Device> devices}) async {

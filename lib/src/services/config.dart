@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:fvslaunch/src/models/config.dart';
+import 'package:fhgllaunch/src/models/config.dart';
 
 class ConfigsService {
   static const FILE_KEY = 'vslaunch';
