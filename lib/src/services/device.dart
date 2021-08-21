@@ -32,13 +32,13 @@ class DeviceService {
 
   List<Device> _generateDevices(Iterable<List<String>> list) {
     return list.map((array) {
-      final name = array[0].trim();
+      final deviceName = array[0].trim();
       final deviceId = array[1].trim();
-      final deviceOS = array[2].trim();
-      print(deviceOS);
+      final deviceOS = array[2].split('-').first.trim();
       return Device(
-        name: name,
+        name: deviceName,
         deviceId: deviceId,
+        os: deviceOS,
         type: 'dart',
         request: 'launch',
         args: [],

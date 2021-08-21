@@ -5,6 +5,7 @@ class Device {
   final String deviceId;
   final String type;
   final String request;
+  final String os;
   final List<String> args;
 
   Device({
@@ -12,6 +13,7 @@ class Device {
     required this.deviceId,
     required this.type,
     required this.request,
+    required this.os,
     required this.args,
   });
 
@@ -20,6 +22,7 @@ class Device {
     String? deviceId,
     String? type,
     String? request,
+    String? os,
     List<String>? args,
   }) {
     return Device(
@@ -27,6 +30,7 @@ class Device {
       deviceId: deviceId ?? this.deviceId,
       type: type ?? this.type,
       request: request ?? this.request,
+      os: os ?? this.os,
       args: args ?? this.args,
     );
   }
@@ -37,6 +41,7 @@ class Device {
       'deviceId': deviceId,
       'type': type,
       'request': request,
+      'os': os,
       'args': args,
     };
   }
@@ -49,6 +54,7 @@ class Device {
       deviceId: map['deviceId'],
       type: map['type'],
       request: map['request'],
+      os: map['os'],
       args: List<String>.from(map['args'] ?? <String>[]),
     );
   }
