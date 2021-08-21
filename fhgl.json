@@ -1,6 +1,6 @@
 {
     "vslaunch": {
-        "all": {
+        "desktop": {
             "args": ["--profile"],
             "file": "lib/main-release.dart",
             "flavor": "prod"

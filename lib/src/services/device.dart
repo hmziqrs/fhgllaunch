@@ -34,6 +34,8 @@ class DeviceService {
     return list.map((array) {
       final name = array[0].trim();
       final deviceId = array[1].trim();
+      final deviceOS = array[2].trim();
+      print(deviceOS);
       return Device(
         name: name,
         deviceId: deviceId,
