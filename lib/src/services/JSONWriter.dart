@@ -1,3 +1,6 @@
+import 'dart:io';
+import 'dart:convert';
+
 import 'package:fvslaunch/src/constants.dart';
 
 import 'package:fvslaunch/src/models/config_device.dart';
@@ -5,12 +8,16 @@ import 'package:fvslaunch/src/models/config.dart';
 import 'package:fvslaunch/src/models/device.dart';
 
 class JSONWriterService {
-  void write({Config? configs, required List<Device> devices}) {
+  void write({Config? configs, required List<Device> devices}) async {
     var parsed = devices;
 
     if (configs != null) {
       parsed = _addConfigsToDevices(configs, devices);
     }
+
+    final map = _mapDevicesToTemplate(parsed);
+
+    await _createJsonFile(map);
   }
 
   List<Device> _addConfigsToDevices(Config configs, List<Device> devices) {
@@ -79,5 +86,32 @@ class JSONWriterService {
     }
 
     return device.copyWith(args: args);
+  }
+
+  Map<String, dynamic> _mapDevicesToTemplate(List<Device> devices) {
+    return {
+      'version': '1.0.0',
+      'configurations': ([
+        {
+          'name': 'Flutter',
+          'request': 'launch',
+          'type': 'dart',
+        },
+        ...devices.map((e) => e.toMap()),
+      ]),
+    };
+  }
+
+  Future<void> _createJsonFile(Map<String, dynamic> map) async {
+    final path =
+        Directory.current.uri.resolve('.vscode').resolve('launch.json');
+    final file = File(path.toFilePath());
+    if (!await file.exists()) {
+      await file.create(recursive: true);
+    }
+    final encoder = JsonEncoder.withIndent('\t');
+    final newJson = encoder.convert(map);
+
+    await file.writeAsString(newJson);
   }
 }
