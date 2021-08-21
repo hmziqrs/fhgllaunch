@@ -62,7 +62,6 @@ class JSONWriterService {
 
     if (config.flavor != null) {
       final index = args.indexOf(FLAVOR_FLAG);
-      print('PRE: $index $args');
       if (index == -1) {
         args.add(FLAVOR_FLAG);
       }
@@ -71,7 +70,6 @@ class JSONWriterService {
       } else {
         args.add(config.flavor!);
       }
-      print('POST: $index $args ${device.type}');
     }
 
     if (config.file != null) {
@@ -79,7 +77,7 @@ class JSONWriterService {
       if (index == -1) {
         args.add(FILE_FLAG);
       }
-      if (args.length >= index + 2) {
+      if (index > -1 && args.length >= index + 2) {
         args[index + 1] = config.file!;
       } else {
         args.add(config.file!);

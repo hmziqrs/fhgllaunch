@@ -13,10 +13,11 @@
 			"request": "launch",
 			"os": "windows",
 			"args": [
-				"lib/main-debug.dart",
+				"--debug",
 				"--flavor",
 				"dev",
-				"-t"
+				"-t",
+				"lib/main-debug.dart"
 			]
 		},
 		{
