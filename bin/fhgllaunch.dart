@@ -8,6 +8,4 @@ void main(List<String> arguments) async {
   final devices = await DeviceService().load();
 
   JSONWriterService().write(devices: devices!, configs: configs);
-
-  // print(devices);
 }

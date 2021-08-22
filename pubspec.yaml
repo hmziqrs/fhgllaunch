@@ -1,12 +1,15 @@
 name: fhgllaunch
 description: A CLI to generate launchable devices for VSCode.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/hackerhgl/fhgllaunch
 repository: https://github.com/hackerhgl/fhgllaunch
 issue_tracker: https://github.com/hackerhgl/fhgllaunch/issues
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
+
+executables:
+  webdev:
 # dependencies:
 # args: 2.2.0
 # dev_dependencies:

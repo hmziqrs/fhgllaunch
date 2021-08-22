@@ -18,6 +18,8 @@ class JSONWriterService {
     final map = _mapDevicesToTemplate(parsed);
 
     await _createJsonFile(map);
+
+    print("JSON GENERATED SUCCESSFULLY");
   }
 
   List<Device> _addConfigsToDevices(Config configs, List<Device> devices) {
