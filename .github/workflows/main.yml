@@ -14,7 +14,7 @@ jobs:
 
       - name: Decode pub credentials base64
         run: |
-          echo "$ENCODED" | base64 -d >> $PUB_CREDENTIALS
+          echo "$(echo $ENCODED | base64 -d)" >> $PUB_CREDENTIALS
         env:
           ENCODED: ${{ secrets.PUB_CREDENTIALS }}
 
