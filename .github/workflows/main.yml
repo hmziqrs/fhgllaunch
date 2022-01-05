@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+      - 'master'
+
+name: Publish package
+jobs:
+  trigger:
+    name: Build Runner
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Decode pub credentials base64
+        run: echo "$PUB_CREDENTIALS" | base64 -d > ./service-key.json
+        env:
+          PUB_CREDENTIALS: ${{ secrets.PUB_CREDENTIALS }}
+
+      - name: Publish
+        uses: sakebook/actions-flutter-pub-publisher@v1.4.0
+        with:
+          credential: ${{ ACCOUNT_ENV64 }}
+          flutter_package: false
+          skip_test: true
+          dry_run: true
