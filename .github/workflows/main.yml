@@ -13,8 +13,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Decode pub credentials base64
-        run: |
-          echo "$(echo $ENCODED | base64 -d)" >> $PUB_CREDENTIALS
+        run: echo "PUB_CREDENTIALS=$(echo $ENCODED | base64 -d)" >> $GITHUB_ENV
         env:
           ENCODED: ${{ secrets.PUB_CREDENTIALS }}
 
